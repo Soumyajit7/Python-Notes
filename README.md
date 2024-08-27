@@ -4,16 +4,21 @@ Welcome to the Python-Notes repository! This repository contains various notes a
 
 ## Table of Contents
 
+- [String](./String.md)
 - [List](./List.md)
-- [Data Types](./Data_Types.md)
-- [Control Flow](./Control_Flow.md)
-- [Functions](./Functions.md)
-- [Modules](./Modules.md)
+- [Set](./Set.md)
+- [Touple](./Touple.md)
+- [Dictionary](./Dictionary.md)
+- [Mutable Immutable Collections](./Mutable_Immutable_Collections.md)
+- [Exception Handling](./Exception_Handling.md)
+- [Object-Oriented Programming](./Oops.md)
+- [Math](./Math.md)
+- [Random](./Random.md)
+- [RegEx](./RegEx.md)
+- [Moduling Packages](./Moduling_Packages.md)
 - [File Handling](./File_Handling.md)
-- [Error Handling](./Error_Handling.md)
-- [Object-Oriented Programming](./OOP.md)
-- [Libraries](./Libraries.md)
-- [Advanced Topics](./Advanced_Topics.md)
+- [Openpyxl](./Openpyxl.md)
+
 
 ## How to Use
 
