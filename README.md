@@ -18,6 +18,8 @@ Welcome to the Python-Notes repository! This repository contains various notes a
 - [Moduling Packages](./Moduling_Packages.md)
 - [File Handling](./File_Handling.md)
 - [Openpyxl](./Openpyxl.md)
+- [Numpy](./Numpy.md)
+- [Pandas](./Pandas.md)
 
 
 ## How to Use
