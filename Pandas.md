@@ -10,7 +10,7 @@ Pandas is an open-source library for real world data analysis in python. It is b
 
 The steps involved to perform data analysis using Pandas are as follows:
 
-![Alt text](image.png)
+![Alt text](./assets//pandas/image.png)
 
 ### Reading the data
 
