@@ -10,7 +10,7 @@ Pandas is an open-source library for real world data analysis in python. It is b
 
 The steps involved to perform data analysis using Pandas are as follows:
 
-![Alt text](./assets//pandas/image.png)
+![Alt text](./assets/pandas/image.png)
 
 ### Reading the data
 
@@ -20,15 +20,15 @@ Below are the examples:
 
 #### Example of an excel file:
 
-![Alt text](image-1.png)
+![Alt text](./assets/pandas/image-1.png)
 
 #### Example of a json (javascript object notation) file:
 
-![Alt text](image-2.png)
+![Alt text](./assets/pandas/image-2.png)
 
 #### Example of a csv (comma separated values) file:
 
-![Alt text](image-3.png)
+![Alt text](./assets/pandas/image-3.png)
 
 ### Exploring the data
 
@@ -113,7 +113,7 @@ series = pd.Series(data = [78, 92, 36, 64, 89])
 print(series)
 ```
 
-![Alt text](image-4.png)
+![Alt text](./assets/pandas/image-4.png)
 
 As shown in the above output, the series object provides the values along with their index attributes.
 
@@ -123,7 +123,7 @@ As shown in the above output, the series object provides the values along with t
 print(series.values)
 ```
 
-![Alt text](image-5.png)
+![Alt text](./assets/pandas/image-5.png)
 
 `Series.index` provides the index.
 
@@ -131,7 +131,7 @@ print(series.values)
 print(series.index)
 ```
 
-![Alt text](image-6.png)
+![Alt text](./assets/pandas/image-6.png)
 
 ### Accessing data in series:
 
@@ -141,7 +141,7 @@ Data can be accessed by the associated index using [ ].
 print(series[1])
 ```
 
-![Alt text](image-7.png)
+![Alt text](./assets/pandas/image-7.png)
 
 ### Slicing a series:
 
@@ -149,7 +149,7 @@ print(series[1])
 print(series[1:3])
 ```
 
-![Alt text](image-8.png)
+![Alt text](./assets/pandas/image-8.png)
 
 By default, series creates an integer index. The custom index can also be defined.
 
@@ -170,7 +170,7 @@ data = pd.Series(data = [700000, 800000, 1600000, 1800000, 30000000], index = ['
 print(data)
 ```
 
-![Alt text](image-9.png)
+![Alt text](./assets/pandas/image-9.png)
 
 Values can be accessed as:
 
@@ -178,13 +178,13 @@ Values can be accessed as:
 print(data['Swift'])
 ```
 
-![Alt text](image-10.png)
+![Alt text](./assets/pandas/image-10.png)
 
 ```python
 print(data['Jazz': 'Gallardo'])
 ```
 
-![Alt text](image-11.png)
+![Alt text](./assets/pandas/image-11.png)
 
 In this case, observations are that the output starts from Jazz and goes till Gallardo(inclusive). This is the fundamental difference between implicit and explicit indexing.
 
@@ -203,7 +203,7 @@ car_price_dict = {'Swift': 700000,
 car_price = pd.Series(car_price_dict)
 print(car_price)
 ```
-![Alt text](image-12.png)
+![Alt text](./assets/pandas/image-12.png)
 
 A series gives a useful way to view and manipulate one dimensional data. But when data is present in rows and columns, it becomes necessary to make use of the Pandas DataFrame object. A DataFrame is a collection of series where each series represents a column from a table.
 
@@ -238,7 +238,7 @@ car_man = pd.Series(car_man_dict)
 print(car_price)
 print(car_man)
 ```
-![Alt text](image-13.png)
+![Alt text](./assets/pandas/image-13.png)
 
 Let us create a Dataframe object using the series objects as shown below:
 
@@ -256,7 +256,7 @@ Let us create a Dataframe object using the series objects as shown below:
 cars = pd.DataFrame({'Price': car_price , 'Manufacturer' : car_man})
 print(cars)
 ```
-![Alt text](image-14.png)
+![Alt text](./assets/pandas/image-14.png)
 
 
 The output shows the Dataframe containing multiple columns. The car names act as the indices and ‘Price’ and ‘Manufacturer’ act as the columns or 'features' of this small dataset.
@@ -266,12 +266,12 @@ To access individual features, the following code can be used:
 ```python
 print(cars['Price'])
 ```
-![Alt text](image-15.png)
+![Alt text](./assets/pandas/image-15.png)
 
 ```python
 print(cars['Manufacturer'])
 ```
-![Alt text](image-16.png)
+![Alt text](./assets/pandas/image-16.png)
 
 
 There are different approaches to create a DataFrame such as:
@@ -294,7 +294,7 @@ car_price = pd.Series(car_price_dict)
 cars = pd.DataFrame(car_price, columns=['Car Price'])
 print(cars)
 ```
-![Alt text](image-17.png)
+![Alt text](./assets/pandas/image-17.png)
 
 ### 2. From a list of dictionaries
 
@@ -317,7 +317,7 @@ data = [{'Name': 'Subodh', 'Marks': 28},
 df = pd.DataFrame(data)
 print(df)
 ```
-![Alt text](image-18.png)
+![Alt text](./assets/pandas/image-18.png)
 
 Suppose there is a following table to be represented as a dataframe ?
 
@@ -332,7 +332,7 @@ df = pd.DataFrame([{'Subodh': 20, 'Ram': 25},
              index=['Mathematics', 'Physics'])
 print(df)
 ```
-![Alt text](image-19.png)
+![Alt text](./assets/pandas/image-19.png)
 
 Each dictionary element in the list is taken as a row . Index is representing different subjects.
 
@@ -360,7 +360,7 @@ car_man = pd.Series(car_man_dict)
 cars = pd.DataFrame({'Price': car_price, 'Manufacturer': car_man})
 print(cars)
 ```
-![Alt text](image-20.png)
+![Alt text](./assets/pandas/image-20.png)
 
 ### 4. From an existing file
 In most real world scenarios, the data is in different file formats like csv, xlsx, json etc. Pandas supports reading the data from these files. Below is an example of creating a DataFrame from a json file.
@@ -371,7 +371,7 @@ Click link text [here](https://lex.infosysapps.com/apis/authContent/content-stor
 data_json = pd.read_json('example.json')
 print(data_json)
 ```
-![Alt text](image-21.png)
+![Alt text](./assets/pandas/image-21.png)
 
 ### The axis keyword
 One of the important parameters used while performing operations on DataFrames is 'axis'. Axis takes two values: 0 and 1.
@@ -386,7 +386,7 @@ One of the important parameters used while performing operations on DataFrames i
 
 Pandas can read a variety of files. For example, a table of fixed width formatted lines (read_fwf), excel sheets (read_excel), html files (read_html), json files (read_json) etc.
 
-![Alt text](image-25.png)
+![Alt text](./assets/pandas/image-25.png)
 
 XYZ custom cars data is given in a csv format. This data is imported to a pandas DataFrame as shown below.
 
@@ -401,7 +401,7 @@ import pandas as pd
 df = pd.read_csv('auto_mpg.csv')
 print(df)
 ```
-![Alt text](image-26.png)
+![Alt text](./assets/pandas/image-26.png)
 
 ### 1. Head and Tail
 
@@ -410,12 +410,12 @@ To view the first few rows or the last few rows, the functions that can be used 
 ```python
 print(df.head())
 ```
-![Alt text](image-27.png)
+![Alt text](./assets/pandas/image-27.png)
 
 ```python
 print(df.tail())
 ```
-![Alt text](image-28.png)
+![Alt text](./assets/pandas/image-28.png)
 
 ### 2. Describe
 
@@ -424,7 +424,7 @@ The describe function can be used to generate a quick summary of data statistics
 ```python
 print(df.describe())
 ```
-![Alt text](image-29.png)
+![Alt text](./assets/pandas/image-29.png)
 
 ### 3. Info
 
@@ -433,13 +433,13 @@ To know about the datatypes and number of rows containing null values for respec
 ```python
 print(df.info())
 ```
-![Alt text](image-30.png)
+![Alt text](./assets/pandas/image-30.png)
 
 ### 4. Dropping null values
 
 It can be observed that the ‘horsepower’ attribute has some null values. The easiest approach is to remove the rows with any null values. This can be achieved using `dropna()` function.
 
-![Alt text](image-31.png)
+![Alt text](./assets/pandas/image-31.png)
 
 ```python
 print(df.isnull())  # check any null values, return as True / False
@@ -448,7 +448,7 @@ print(df.isnull().sum())    # check total null values of each columns
 df.dropna(inplace = True)
 print(df.info())
 ```
-![Alt text](image-32.png)
+![Alt text](./assets/pandas/image-32.png)
 
 After dropping the rows with null horsepower values, it can be observed that the number of rows has been reduced to 392.
 
@@ -465,7 +465,7 @@ In addition to data access techniques, pandas also provides techniques for index
 ```python
 print(df['name'])
 ```
-![Alt text](image-33.png)
+![Alt text](./assets/pandas/image-33.png)
 
 Output is a Series containing car names.
 
@@ -474,7 +474,7 @@ Output is a Series containing car names.
 ```python
 print(df[['name']])
 ```
-![Alt text](image-34.png)
+![Alt text](./assets/pandas/image-34.png)
 
 Output is a DataFrame containing just one column.
 
@@ -483,7 +483,7 @@ Output is a DataFrame containing just one column.
 ```python
 print(df[['name', 'origin', 'model_year', 'mpg']])
 ```
-![Alt text](image-35.png)
+![Alt text](./assets/pandas/image-35.png)
 
 
 ## Setting custom index:
@@ -497,7 +497,7 @@ df_head = df.head()
 df_head.set_index('name', inplace = True)
 print(df_head)
 ```
-![Alt text](image-36.png)
+![Alt text](./assets/pandas/image-36.png)
 
 `'iloc'` and `'loc'` are the two indexing techniques that help us in selecting specific rows and columns.
 
@@ -512,22 +512,22 @@ df.iloc[Rows, Columns]
 
 In the following demos, 'df' refers to XYZ Custom Cars DataFrame.
 
-![Alt text](image-37.png)
+![Alt text](./assets/pandas/image-37.png)
 
 ```python
 print(df.iloc[2,1])
 ```
-![Alt text](image-38.png)
+![Alt text](./assets/pandas/image-38.png)
 
 ```python
 print(df.iloc[2,-1])
 ```
-![Alt text](image-39.png)
+![Alt text](./assets/pandas/image-39.png)
 
 ```python
 print(df.iloc[1:5, 4:6])
 ```
-![Alt text](image-40.png)
+![Alt text](./assets/pandas/image-40.png)
 
 
 ### 2. `loc`- Access a group of rows and columns by custom index.
@@ -544,7 +544,7 @@ data_csv = pd.DataFrame({
 
 print(data_csv)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 3_41_25 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 3_41_25 PM.png>)
 
 To select a subset of columns, the column names can be passed as a list.
 
@@ -555,42 +555,42 @@ Note: While retrieving records using loc, the upper range of slice is inclusive.
 subset = data_csv.loc[[1, 3]]
 print(subset)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 3_45_09 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 3_45_09 PM.png>)
 
 ```python
 # Select 'Name' and 'City' columns for all rows
 subset = data_csv.loc[:, ['Name', 'City']]
 print(subset)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 3_47_02 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 3_47_02 PM.png>)
 
 ```python
 # Select 'Name' and 'Score' columns for rows with labels 1 and 4
 subset = data_csv.loc[[1, 3], ['Name', 'Score']]
 print(subset)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 3_48_44 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 3_48_44 PM.png>)
 
 ```python
 # Select rows where 'Age' is greater than 25
 subset = data_csv.loc[data_csv['Age'] > 25]
 print(subset)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 3_49_56 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 3_49_56 PM.png>)
 
 ```python
 # Select rows where 'City' is 'Chicago' or 'Houston'
 subset = data_csv.loc[data_csv['City'].isin(['Chicago', 'Houston'])]
 print(subset)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 3_51_22 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 3_51_22 PM.png>)
 
 ```python
 # Select rows from 0 to 2 with column 'Name' and 'Age'
 subset = data_csv.loc[0:2, ['Name', 'Age']]
 print(subset)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 3_53_20 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 3_53_20 PM.png>)
 
 
 Consider the following table:
@@ -612,14 +612,14 @@ marks = {'Chemistry': [67, 90, 66, 32],
 marks_df = pd.DataFrame(marks, index=['Subodh', 'Ram', 'Abdul', 'John'])
 print(marks_df)
 ```
-![Alt text](image-43.png)
+![Alt text](./assets/pandas/image-43.png)
 
 
 ```python
 marks_df['Total'] = marks_df['Chemistry'] + marks_df['Physics'] + marks_df['Mathematics'] + marks_df['English']
 print(marks_df)
 ```
-![Alt text](image-44.png)
+![Alt text](./assets/pandas/image-44.png)
 
 
 To drop a feature:
@@ -627,7 +627,7 @@ To drop a feature:
 ```python
 marks_df.drop(columns = 'Total', inplace = True)
 ```
-![Alt text](image-45.png)
+![Alt text](./assets/pandas/image-45.png)
 
 
 # Operations in Pandas
@@ -640,7 +640,7 @@ Solution:
 ```python
 print(df.loc[df['model_year'] == 72 ].head())
 ```
-![Alt text](image-46.png)
+![Alt text](./assets/pandas/image-46.png)
 
 ### Problem statement : Retrieve details of all the cars built in Japan having 6 cylinders
 
@@ -649,7 +649,7 @@ Solution:
 ```python
 print(df.loc[(df['origin'] == 'japan') & (df['cylinders'] == 6)])
 ```
-![Alt text](image-47.png)
+![Alt text](./assets/pandas/image-47.png)
 
 
 ### Problem Statement:
@@ -681,28 +681,28 @@ Let us see how we can find out the cars belonging to these categories based on t
 # Weight < 2500
 df.loc[(df['mpg'] > 29) & (df['horsepower'] < 93.5) & (df['weight'] < 2500)]
 ```
-![Alt text](image-48.png)
+![Alt text](./assets/pandas/image-48.png)
 
 ```python
 # Muscle cars
 # Displacement >262, Horsepower > 126, Weight in range[2800, 3600]
 df.loc[(df['displacement'] > 262) & (df['horsepower'] > 126) & (df['weight'] >=2800) & (df['weight'] <= 3600)]
 ```
-![Alt text](image-49.png)
+![Alt text](./assets/pandas/image-49.png)
 
 ```python
 # SUV
 # Horsepower > 140 , Weight > 4500
 df.loc[(df['horsepower'] > 140) & (df['weight'] >=4500)]
 ```
-![Alt text](image-50.png)
+![Alt text](./assets/pandas/image-50.png)
 
 ```python
 # Racecar
 # Weight <2223, acceleration > 17
 df.loc[(df['acceleration'] > 17) & (df['weight'] < 2223)]
 ```
-![Alt text](image-51.png)
+![Alt text](./assets/pandas/image-51.png)
 
 
 The masking operation replaces values where the condition is True.
@@ -732,7 +732,7 @@ marks = [{'Chemistry': 67, 'Physics': 45, 'Mathematics': 50, 'English': 19},
 marks_df = pd.DataFrame(marks, index=['Subodh', 'Ram', 'Abdul', 'John'])
 print(marks_df)
 ```
-![Alt text](image-52.png)
+![Alt text](./assets/pandas/image-52.png)
 
 Syntax:
 ```python
@@ -751,7 +751,7 @@ f = marks_df < 33
 marks_df.mask(f, 'Fail', inplace=True)
 print(marks_df)
 ```
-![Alt text](image-53.png)
+![Alt text](./assets/pandas/image-53.png)
 
 
 ### Problem Statement:
@@ -765,7 +765,7 @@ The following method can be used to get the solution.
 sorted_marks_df = marks_df.sort_values(by='Chemistry')
 print(sorted_marks_df)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 4_55_30 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 4_55_30 PM.png>)
 
 
 ### Problem Statement:
@@ -779,7 +779,7 @@ In this case, the data must be sorted in ascending order of Physics marks and de
 sorted_marks_df = marks_df.sort_values(['Physics', 'Chemistry'], ascending=(1, 0))
 print(sorted_marks_df)
 ```
-![Alt text](<ExcelDataMatching – PandasPractice2.py 9_2_2024 4_57_20 PM.png>)
+![Alt text](<./assets/pandas/ExcelDataMatching – PandasPractice2.py 9_2_2024 4_57_20 PM.png>)
 
 
 Pandas preserves the index and column labels in the output. For binary operations such as addition and multiplication, Pandas will automatically align indices when passing the objects to the functions.
@@ -811,7 +811,7 @@ marks_df = pd.DataFrame(marks, index=['Subodh', 'Ram', 'Abdul', 'John'])
 encrypted_marks = np.sin(marks_df)
 print(encrypted_marks)
 ```
-![Alt text](image-55.png)
+![Alt text](./assets/pandas/image-55.png)
 
 The  encrypted marks are with same indices as the original marks. This is called as index preservation.
 
@@ -822,7 +822,7 @@ In case of a requirement where the index has to be restored to the default index
 encrypted_marks.reset_index(inplace = True)
 print(encrypted_marks)
 ```
-![Alt text](image-56.png)
+![Alt text](./assets/pandas/image-56.png)
 
 Broadcasting refers to a set of rules to operate between data of different sizes and shapes.
 
@@ -845,7 +845,7 @@ This can be done by using broadcasting methods available in Pandas.
 new_marks = marks_df + 5
 print(new_marks)
 ```
-![Alt text](image-57.png)
+![Alt text](./assets/pandas/image-57.png)
 
 
 ### Problem Statement:
@@ -866,7 +866,7 @@ This can be done as follows:
 new_marks = marks_df + [5,10,10,2]
 print(new_marks)
 ```
-![Alt text](image-58.png)
+![Alt text](./assets/pandas/image-58.png)
 
 ### Apply
 This method is used to apply a function along an axis of the DataFrame.
@@ -1435,7 +1435,7 @@ pd.concat(data1, data2, sort)
 marks = pd.concat([marks_A_df, marks_B_df], sort=False)
 print(marks)
 ```
-![Alt text](image-59.png)
+![Alt text](./assets/pandas/image-59.png)
 
 
 Now consider the following two tables.
@@ -1461,7 +1461,7 @@ df2 = pd.DataFrame({'employee': ['Jyoti', 'Sapna', 'Raj', 'Ramaswamy'],
                     'hire_date': [2004, 2008, 2012, 2014]})
 print(df1, df2)
 ```
-![Alt text](image-60.png)
+![Alt text](./assets/pandas/image-60.png)
 
 In this case, trying to concatenate the two tables will result in some null values because of column mismatch.
 
@@ -1469,7 +1469,7 @@ In this case, trying to concatenate the two tables will result in some null valu
 df = pd.concat([df1, df2], sort=False)
 print(df)
 ```
-![Alt text](image-61.png)
+![Alt text](./assets/pandas/image-61.png)
 
 As one can observe, the NaN values are not giving any concrete information. Hence in this case, the concat function does not work effectively.
 
@@ -1486,7 +1486,7 @@ pd.merge(data1, data2, how = 'inner')
 df3 = pd.merge(df1, df2)
 print(df3)
 ```
-![Alt text](image-62.png)
+![Alt text](./assets/pandas/image-62.png)
 
 In Pandas, the merge keyword automatically performs the inner join. For other types of joins, the 'how' parameter must be specified.
 
@@ -1640,35 +1640,35 @@ plt.title('Students Marks')
 # Show the plot
 plt.show()
 ```
-![Alt text](image-63.png)
+![Alt text](./assets/pandas/image-63.png)
 
 
 ### Marker: ‘s’ (square)
 ```python
 marks_df.plot(marker='s', kind='line')
 ```
-![Alt text](Figure_1.png)
+![Alt text](./assets/pandas/Figure_1.png)
 
 
 ### Marker: ‘^’ (triangle)
 ```python
 marks_df.plot(marker='^', kind='line')
 ```
-![Alt text](Figure_2.png)
+![Alt text](./assets/pandas/Figure_2.png)
 
 
 ### Kind: ‘bar’
 ```python
 marks_df.plot(kind='bar')
 ```
-![Alt text](Figure_3.png)
+![Alt text](./assets/pandas/Figure_3.png)
 
 
 ### Kind: ‘barh’ (horizontal bar)
 ```python
 marks_df.plot(kind='barh')
 ```
-![Alt text](Figure_4.png)
+![Alt text](./assets/pandas/Figure_4.png)
 
 
 ### Kind: scatter
@@ -1694,10 +1694,10 @@ for subject in marks_df.columns:
     plt.show()
 
 ```
-![Alt text](Figure_5.png)
-![Alt text](Figure_6.png)
-![Alt text](Figure_7.png)
-![Alt text](Figure_8.png)
+![Alt text](./assets/pandas/Figure_5.png)
+![Alt text](./assets/pandas/Figure_6.png)
+![Alt text](./assets/pandas/Figure_7.png)
+![Alt text](./assets/pandas/Figure_8.png)
 
 
 **Another Example**
@@ -1724,7 +1724,7 @@ plt.title('Students Marks')
 plt.legend()
 plt.show()
 ```
-![Alt text](Figure_9.png)
+![Alt text](./assets/pandas/Figure_9.png)
 
 
 **Another Example**
@@ -1776,7 +1776,7 @@ model_year
 2002               13.75
 2003               14.75
 ```
-![Alt text](Figure_10.png)
+![Alt text](./assets/pandas/Figure_10.png)
 
 **Another Example**
 ```python
@@ -1798,7 +1798,7 @@ plt.title('Histogram of Acceleration')
 plt.show()
 ```
 **Output:**
-![Alt text](Figure_11.png)
+![Alt text](./assets/pandas/Figure_11.png)
 
 
 **Another Example**
@@ -1822,7 +1822,7 @@ plt.title('Scatter Plot of Weight vs MPG')
 plt.show()
 ```
 **Output:**
-![Alt text](Figure_12.png)
+![Alt text](./assets/pandas/Figure_12.png)
 
 
 **Another Example**
@@ -1830,7 +1830,7 @@ plt.show()
 df.groupby('model_year').mean().sort_values('acceleration')[['acceleration']].plot(kind='bar')
 ```
 **Output:**
-![Alt text](Figure_13.png)
+![Alt text](./assets/pandas/Figure_13.png)
 
 
 ## Pandas Exercise
