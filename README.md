@@ -20,6 +20,7 @@ Welcome to the Python-Notes repository! This repository contains various notes a
 - [Openpyxl](./Openpyxl.md)
 - [Numpy](./Numpy.md)
 - [Pandas](./Pandas.md)
+- [Matplotlib](./Matplotlib.md)
 
 
 ## How to Use
