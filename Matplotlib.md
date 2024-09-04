@@ -339,6 +339,8 @@ Deeper insights can be gained from the data by visualizing it using Matplotlib. 
 
 So, let us visualize the data using Matplotlib.
 
+Download dataset [auto_mpg.csv](https://www.kaggle.com/datasets/uciml/autompg-dataset?select=auto-mpg.csv).
+
 ```python
 import pandas as pd
 #importing the data
@@ -449,8 +451,10 @@ ax.scatter(x, y, marker) # ax represents axes
 
 ```python
 # visualizing correlation between mileage and horsepower
-# importing the required packages
 import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv('./TestData/auto_mpg.csv')
 
 # creating an empty canvas/figure
 fig = plt.figure(figsize=[10, 5])
@@ -498,25 +502,27 @@ ax.scatter(x, height, width, bottom, align)     # ax represents axes
 
 
 ```python
-# Creating a grouped DataFrame according to model year
-grouped_df = df.groupby(['model_year']).count()[['name']]
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Sample data
+df = pd.read_csv('./TestData/auto_mpg.csv')
+
+# Group by model year and count the number of cars
+grouped_df = df.groupby(['model year']).count()[['car name']]
 grouped_df.reset_index(inplace=True)
 
-# plotting the number of cars in each year
-# importing the required packages
-import matplotlib.pyplot as plt
-
-# creating an empty canvas/figure
+# Creating an empty canvas/figure
 fig = plt.figure(figsize=[7, 5])
 
-# setting axes
+# Setting axes
 ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])  # 10% margin on all sides
 ax.set_title("Number of cars in each year", fontsize=16)
 ax.set_ylabel('Number of cars', fontsize=12)
 ax.set_xlabel('Model year', fontsize=12)
 
-# plotting bar graph
-ax.bar(grouped_df['model_year'], grouped_df['name'])
+# Plotting bar graph
+ax.bar(grouped_df['model year'], grouped_df['car name'])
 plt.show()
 ```
 ![Alt text](./assets/matplotlib/image-20.png)
@@ -546,10 +552,10 @@ ax.hist(x, bins) # ax represents axes
 
 
 ```python
-# creating a histogram for horsepower
-# importing the required packages
 import matplotlib.pyplot as plt
+import pandas as pd
 
+df = pd.read_csv('./TestData/auto_mpg.csv')
 # creating an empty canvas/figure
 fig = plt.figure(figsize=[8, 6])
 # setting axes
@@ -590,6 +596,10 @@ ax.pie(x, labels) # ax represents axes
 `labels` = sequence of strings providing the label for wedges
 
 ```python
+import pandas as pd
+
+df = pd.read_csv('./TestData/auto_mpg.csv')
+
 pie_df = pd.DataFrame()  # creating a sub dataframe to plot the pie chart
 pie_df['Count'] = df['origin'].value_counts()  # getting the count of ‘origin’ and assigning to the df
 pie_df = pie_df.reset_index()  # re-arranging the index
@@ -600,6 +610,17 @@ print(pie_df)
 
 
 ```python
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv('./TestData/auto_mpg.csv')
+
+pie_df = pd.DataFrame()  # creating a sub dataframe to plot the pie chart
+pie_df['Count'] = df['origin'].value_counts()  # getting the count of ‘origin’ and assigning to the df
+pie_df = pie_df.reset_index()  # re-arranging the index
+pie_df.rename(columns={'origin': 'Country'}, inplace=True)  # re-naming the col
+print(pie_df)
+
 # creating an empty canvas/figure
 fig = plt.figure(figsize=[8, 6])
 # setting axes
@@ -628,10 +649,17 @@ Following are the parameters:
 
 
 ```python
-pie_df = {
-    'Country': ['USA', 'Germany', 'Japan'],
-    'Count': [50, 30, 20]
-}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv('./TestData/auto_mpg.csv')
+
+pie_df = pd.DataFrame()  # creating a sub dataframe to plot the pie chart
+pie_df['Count'] = df['origin'].value_counts()  # getting the count of ‘origin’ and assigning to the df
+pie_df = pie_df.reset_index()  # re-arranging the index
+pie_df.rename(columns={'origin': 'Country'}, inplace=True)  # re-naming the col
+print(pie_df)
+
 fig = plt.figure(figsize=[8, 6])
 ax = fig.add_axes([0, 0, 1, 1])
 explode = [0.05, 0, 0]
@@ -654,7 +682,7 @@ From the plot above, following are the insights:
 
 2. What is the percentage of cars produced from Japan?
 
-    **Answer:** 20.0%
+    **Answer:** 17.6%
 
 ### Line Chart
 
@@ -685,24 +713,22 @@ Now, let us plot the line chart for the scenario.
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Example data
-data = {
-    'model_year': [1970, 1971, 1972, 1973, 1974],
-    'mpg': [18, 15, 16, 17, 14],
-    'weight': [3500, 3200, 3000, 2800, 2700],
-    'horsepower': [130, 150, 140, 135, 120]
-}
+# Read the CSV file
+df = pd.read_csv('./TestData/auto_mpg.csv', na_values='?')
 
-# Creating DataFrame
-line_df = pd.DataFrame(data)
+line_df = df.groupby('model_year')
+line_df = line_df.mean(numeric_only=True)  # creating a sub dataframe for the line graph
 
-# Plotting
+# creating an empty canvas/figure
 fig = plt.figure(figsize=[8, 4])
-ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])
-ax.plot(line_df['model_year'], line_df['mpg'] / 10, label='Mileage /10')
-ax.plot(line_df['model_year'], line_df['weight'] / 1000, label='Weight /1000')
-ax.plot(line_df['model_year'], line_df['horsepower'] / 100, label='Horsepower /100')
 
+# setting axes
+ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])  # 10% margin on all sides
+
+# plotting the lines
+ax.plot(line_df['mpg'] / 10, label='Mileage /10')
+ax.plot(line_df['weight'] / 1000, label='Weight /1000')
+ax.plot(line_df['horsepower'] / 100, label='Horsepower /100')
 ax.set_title('Mileage vs Weight vs Horsepower', fontsize=17)
 ax.set_ylabel('Value', fontsize=12)
 ax.set_xlabel('Model year', fontsize=12)
@@ -719,10 +745,26 @@ Matplotlib supports several line styles such as solid line, dashed line (-----),
 Below is a small example of how linestyle, width, and color can be used.
 
 ```python
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Read the CSV file
+df = pd.read_csv('./TestData/auto_mpg.csv', na_values='?')
+
+line_df = df.groupby('model_year')
+line_df = line_df.mean(numeric_only=True)  # creating a sub dataframe for the line graph
+
+# creating an empty canvas/figure
+fig = plt.figure(figsize=[8, 4])
+
+# setting axes
+ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])  # 10% margin on all sides
+
 # plotting the lines
 ax.plot(line_df['mpg'] / 10, label='Mileage', linestyle='-', linewidth=2)
 ax.plot(line_df['weight'] / 1000, label='Weight', linestyle=':', linewidth=3)
 ax.plot(line_df['horsepower'] / 100, label='Horsepower', linestyle='--', linewidth=3)
+
 # possible linestype options ‘-‘, ‘–’, ‘-.’, ‘:’
 ax.set_title('Mileage vs Weight vs Horsepower', fontsize=17)
 ax.set_ylabel('Value', fontsize=12)
@@ -741,39 +783,36 @@ In addition to adding the title and axis names, text can also be added to descri
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Example data
-data = {
-    'model_year': [1970, 1971, 1972, 1973, 1974],
-    'mpg': [18, 15, 16, 17, 14],
-    'weight': [3500, 3200, 3000, 2800, 2700],
-    'horsepower': [130, 150, 140, 135, 120]
-}
+# Read the CSV file
+df = pd.read_csv('./TestData/auto_mpg.csv', na_values='?')
 
-# Creating DataFrame
-line_df = pd.DataFrame(data)
+line_df = df.groupby('model_year')
+line_df = line_df.mean(numeric_only=True)  # creating a sub dataframe for the line graph
 
-# Plotting
-fig = plt.figure(figsize=[8, 4])
+# creating an empty canvas/figure
+fig = plt.figure(figsize=[10, 5])
+
+# setting axes
 ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])
-ax.plot(line_df['model_year'], line_df['mpg'] / 10, label='Mileage /10')
-ax.plot(line_df['model_year'], line_df['weight'] / 1000, label='Weight /1000')
-ax.plot(line_df['model_year'], line_df['horsepower'] / 100, label='Horsepower /100')
 
-# Adding text
-plt.text(1971, 1.5, 'Horsepower', va='center', rotation=4, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3))
-plt.text(1971, 2.25, 'Mileage', va='center', rotation=17, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3))
-plt.text(1972, 3.15, 'Weight', va='center', rotation=-13, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3))
-
-# Adding annotations
-plt.annotate('Highest Mileage', xy=(1974, 1.7), xytext=(1974.5, 1.8), arrowprops=dict(facecolor='wheat', shrink=0.05))
-plt.annotate('Lowest Mileage', xy=(1970, 1.8), xytext=(1970.5, 1.9), arrowprops=dict(facecolor='wheat', shrink=0.05))
-
-# Setting title and labels
+# plotting the lines
+ax.plot(line_df['mpg'] / 10, label='Mileage')
+ax.plot(line_df['weight'] / 1000, label='Weight')
+ax.plot(line_df['horsepower'] / 100, label='Horsepower')
+plt.text(75.5, 1.14, 'Horsepower',
+         va='center',  # va -> vertical alignment
+         rotation=4,  # angle
+         bbox=dict(
+             boxstyle='round',
+             facecolor='wheat',
+             alpha=0.3))  # background style
+plt.text(75.5, 2.25, 'Mileage', va='center', rotation=17, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3))
+plt.text(76, 3.15, 'Weight', va='center', rotation=-13, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3))
+plt.annotate('Highest Mileage', xy=(80.1, 3.39), xytext=(80.5, 3.38), arrowprops=dict(facecolor='wheat', shrink=.01))
+plt.annotate('Lowest Mileage', xy=(73.05, 1.70), xytext=(73.5, 1.69), arrowprops=dict(facecolor='wheat', shrink=.01))
 ax.set_title('Mileage vs Weight vs Horsepower', fontsize=17)
 ax.set_ylabel('Value', fontsize=12)
 ax.set_xlabel('Model year', fontsize=12)
-ax.legend()
-
 plt.show()
 ```
 ![Alt text](./assets/matplotlib/image-30.png)
@@ -784,41 +823,31 @@ plt.show()
 Markers are used to highlight the intercepts in a plot. There are several types of markers such as ‘o’, ‘s’, ‘x’,’+’, etc. Let us learn to use the marker parameter in a plot as follows:
 
 ```python
-# importing the required packages
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Example data
-data = {
-    'model_year': [70, 72, 74, 76, 78, 80, 82],
-    'mpg': [2.5, 2.0, 1.5, 2.0, 3.0, 3.5, 3.0],
-    'weight': [3.0, 2.5, 1.8, 2.2, 2.5, 3.0, 3.5],
-    'horsepower': [1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2]
-}
+# Read the CSV file
+df = pd.read_csv('./TestData/auto_mpg.csv', na_values='?')
 
-# Creating DataFrame
-line_df = pd.DataFrame(data)
+line_df = df.groupby('model_year')
+line_df = line_df.mean(numeric_only=True)  # creating a sub dataframe for the line graph
 
-# Creating an empty canvas/figure
+# creating an empty canvas/figure
 fig = plt.figure(figsize=[8, 4])
 
-# Setting axes
+# setting axes
 ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])
 
-# Plotting the lines
-ax.plot(line_df['model_year'], line_df['mpg'], label='Mileage', color="g", marker='+', markersize=7)
-ax.plot(line_df['model_year'], line_df['weight'], label='Weight', color="b", marker='o', markersize=7)
-ax.plot(line_df['model_year'], line_df['horsepower'], label='Horsepower', color="r", marker='s', markersize=7)
+# plotting the lines
+ax.plot(line_df['mpg'] / 10, label='Mileage', color="g", marker='+', markersize=7)
+ax.plot(line_df['weight'] / 1000, label='Weight', color="b", marker='o', markersize=7)
+ax.plot(line_df['horsepower'] / 100, label='Horsepower', color="r", marker='s', markersize=7)
 
-# Setting title and labels
+# possible marker symbols: marker = '+', 'o', '*', 's', ',', '.', '1', '2', '3', '4', ...
 ax.set_title('Mileage vs Weight vs Horsepower', fontsize=17)
 ax.set_ylabel('Value', fontsize=12)
 ax.set_xlabel('Model year', fontsize=12)
-
-# Adding legend
 ax.legend()
-
-# Displaying the plot
 plt.show()
 ```
 ![Alt text](./assets/matplotlib/image-31.png)
