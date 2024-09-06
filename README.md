@@ -21,6 +21,7 @@ Welcome to the Python-Notes repository! This repository contains various notes a
 - [Numpy](./Numpy.md)
 - [Pandas](./Pandas.md)
 - [Matplotlib](./Matplotlib.md)
+- [Scikit Learn](./Scikit-learn.md)
 
 
 ## How to Use

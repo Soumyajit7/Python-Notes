@@ -341,7 +341,7 @@ Deeper insights can be gained from the data by visualizing it using Matplotlib. 
 
 So, let us visualize the data using Matplotlib.
 
-Download dataset [auto_mpg.csv](https://www.kaggle.com/datasets/uciml/autompg-dataset?select=auto-mpg.csv).
+Download dataset [auto_mpg.csv](https://github.com/Soumyajit7/Python-Notes/blob/main/TestData/auto_mpg.csv).
 
 ```python
 import pandas as pd
