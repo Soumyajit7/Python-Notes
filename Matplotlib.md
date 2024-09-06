@@ -96,6 +96,7 @@ plt.show()
 ```
 
 **Output:**
+
 ![Alt text](./assets/matplotlib/image-4.png)
 
 matplotlib.pyplot is the simplest way of plotting. It creates the default elements like Figure and Axes required and then plots the data. This approach can be used to plot different kinds of graphs  like Line, Bar, Scatter plots, histogram etc.
@@ -294,6 +295,7 @@ ax2.set_ylabel('Plot 2 - Y axis', fontsize=15)  # setting Y _label
 plt.show()
 ```
 **Output:**
+
 ![Alt text](./assets/matplotlib/image-10.png)
 
 A subplot is crested with two different plots aligned in 1 row and 2 columns. In this plot, it is seen that the y_label of the second plot is overlapping with the first plot. To avoid this, ‘`fig.tight_layout()`’ must be added.
